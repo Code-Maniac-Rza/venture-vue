@@ -17,29 +17,30 @@ import { Login } from "./Login";
 import {SignUp} from './SignUp'
 import Investors from "./investors/Investors";
 
-function App() {
+import Dashboard from './Dashboard'; // Import your Dashboard component
+import { DashboardNav } from "./DashboardNav";
 
+function App() {
   const router = createBrowserRouter([
     {
       path:'/', 
       element:<MainNav/>,
       children:[
         {index:true, element: <LandingPage /> },
-        // {index:true,element:<LineChart chartData={userData}/>}
       ]
     },
-
     {
       path:'Login',
       element:<Login/>
     },
-
     {
       path:'SignUp',
       element:<SignUp/>
     },
-    
-
+    {
+      path:'Dashboard', // Add the Dashboard route here
+      element:<Dashboard/> // Render the Dashboard component
+    },
     {
       path:'state-lead',
       children:[
@@ -52,17 +53,13 @@ function App() {
         }
       ]
     },
-
     {
       path:'investors',
       children:[
         {index:true,element:<Investors/>},
-      
       ]
     },
-    
-
-  ])
+  ]);
 
   return (
     <div className="App">
