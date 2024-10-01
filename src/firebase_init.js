@@ -6,12 +6,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA5BVU71hGsHdUu2j49UL5txtruBqt0N-c",
-  authDomain: "venturevue-14724.firebaseapp.com",
-  projectId: "venturevue-14724",
-  storageBucket: "venturevue-14724.appspot.com",
-  messagingSenderId: "850296386334",
-  appId: "1:850296386334:web:2fa392b8d0c8c9ccd84f0f"
+  apiKey: "AIzaSyAhXAzbLypV-oJ4vuGjmyzbAzclBqQP4SI",
+  authDomain: "venturevue-app.firebaseapp.com",
+  projectId: "venturevue-app",
+  storageBucket: "venturevue-app.appspot.com",
+  messagingSenderId: "954032103594",
+  appId: "1:954032103594:web:85411d67d522ca2c2530d3"
 };
 
 // Initialize Firebase

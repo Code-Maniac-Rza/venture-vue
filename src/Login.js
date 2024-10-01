@@ -23,25 +23,27 @@ export const Login = ()=>{
         setPassword(event.target.value)
     }
 
-    const verifyDetails = async ()=>{
-
-        let flag = false;
+    const verifyDetails = async () => {
+        let user = null;
         const querySnapshot = await getDocs(collection(db, "users"));
         querySnapshot.forEach((doc) => {
-            if(doc.data().Email===email && doc.data().Password===password){
-                flag = true;
+            if(doc.data().Email === email && doc.data().Password === password){
+                user = {
+                    fname: doc.data().FirstName,
+                    lname: doc.data().LastName,
+                    email: doc.data().Email
+                };
             }
         })
-
-        if(flag){
+    
+        if(user){
             setIsLogIn(true)
-            navigate('/', {state:{logInFlag:true,isLogIn}} )
+            navigate('/Dashboard', { state: { user: user, logInFlag: true, isLogIn: true } })
         }
         else{
             alert('Wrong Credentials are entered!!')
         }
     }
-
     return(
         <>
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -75,7 +77,7 @@ export const Login = ()=>{
                         placeholder="Email address" 
                         value={email}
                         onChange={changeEmail}
-                        style={{color:'black'}}
+                        style={{color:'white'}}
                         />
                         <label
                         for="exampleFormControlInput3"
@@ -93,7 +95,7 @@ export const Login = ()=>{
                         placeholder="Password" 
                         value={password}
                         onChange={changePassword}
-                        style={{color:'black'}}
+                        style={{color:'white'}}
                         />
                         <label
                         for="exampleFormControlInput33"
